@@ -1,0 +1,176 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('./images/tone22.png') no-repeat center center fixed;
+    height: 100%;
+    width: 100%;
+    overflow: hidden; /* Prevent scrolling */
+    background-size: 100% 100%; /* Ensures the image always stretches to fill the screen */
+    background-position: center center; /* Keep the image centered */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Media query for small screens */
+  @media (max-width: 768px) {
+    body {
+      background-size: 100% 100%; /* Ensure image is stretched to fill width and height on mobile */
+      background-position: center center; /* Keeps the image centered */
+    }
+  }
+  
+  
+  
+  
+  /* Container Styling */
+  .container {
+    width: 90%;
+    max-width: 600px;
+    
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  }
+  
+  /* Progress Bar */
+  .progress-bar {
+    width: 100%;
+    height: 10px;
+    background: #e0e0e0;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    overflow: hidden;
+  }
+  
+  .progress {
+    height: 100%;
+    width: 0;
+    background: #637fc1;
+    transition: width 0.3s ease-in-out;
+  }
+  
+  /* Question Text */
+  .questionnaire h1 {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+  }
+  
+  .questionnaire p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+  
+  /* Options */
+  .options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .option {
+    padding: 10px 15px;
+    background: #f0f0f0;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border: 1px solid transparent;
+  }
+  
+  .option:hover {
+    background: #637fc1;
+    color: #fff;
+  }
+  
+  .option.selected {
+    background: #637fc1;
+    color: #fff;
+    border-color: #555;
+  }
+  
+  /* Navigation Buttons */
+  .navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .nav-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background: #637fc1;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .nav-button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .nav-button:hover:not(:disabled) {
+    background: #505ea1;
+  }
+  
+  /* Color Palette */
+.color-picker {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    justify-content: center;
+  }
+  
+  .color-option {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .color-option:hover {
+    border: 2px solid #333;
+  }
+  
+  /* Video Element Styling */
+#video {
+  position: absolute; /* Ensure it can be precisely placed */
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Adjust for perfect centering */
+  width: 100%; /* Full width for responsiveness */
+  height: auto; /* Maintain aspect ratio */
+  z-index: 1; /* Behind the main UI */
+  display: none; /* Hidden by default, shown when needed */
+  border-radius: 10px; /* Optional for rounded corners */
+}
+
+/* Canvas Element Styling */
+#overlay {
+  position: absolute; /* Overlay on the video */
+  top: 0;
+  left: 0;
+  width: 100%; /* Match video width */
+  height: 100%; /* Match video height */
+  z-index: 2; /* Above the video, below UI */
+  pointer-events: none; /* Allow clicks to pass through */
+}
+
+/* Adjusting Z-Index for Buttons and UI */
+.container {
+  position: relative; /* Ensure it sits above video and canvas */
+  z-index: 3; /* Higher than video and canvas */
+}
+
+/* Optional: Ensure video and canvas do not overflow */
+body {
+  overflow: hidden; /* Prevent scrolling caused by video/canvas */
+  position: relative; /* To contain absolute elements like video */
+}
